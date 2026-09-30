@@ -1,27 +1,25 @@
 def mostrar_numeros():
+    # 1. Escrita no arquivo
     with open("numeros.txt", "w", encoding="utf-8") as arquivo:
-        arquivo.write("10")
-        arquivo.write("11")
-        arquivo.write("12")
-        arquivo.write("13")
-        arquivo.write("14")
-        arquivo.write("15")
-        arquivo.write("16")
-        arquivo.write("17")
-        arquivo.write("18")
-        arquivo.write("19")
-        arquivo.write("20")
+        arquivo.write("3\n1\n12\n44\n14\n99\n16\n17\n81\n19\n78\n21\n22\n43\n")
 
     numeros = []
+
+    # 2. Leitura do arquivo
     with open("numeros.txt", "r", encoding="utf-8") as arquivo:
         for linha in arquivo:
-            # Converte o valor de texto para inteiro (int)
-            numero = int(linha)
-            # Adiciona na lista
+            numero = int(linha.strip())
             numeros.append(numero)
 
+    # Lista para guardar apenas os pares
+    pares = []
+
+    # 3. Filtrando os números pares
     for numero in numeros:
         if numero % 2 == 0:
-            print(f"Esses são os numeros pares: {numeros}")
+            pares.append(numero)  # Adiciona na lista de pares
+
+    # Exibe a lista inteira de uma vez
+    print(pares)
 
 mostrar_numeros()
